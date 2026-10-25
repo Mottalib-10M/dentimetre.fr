@@ -17,6 +17,7 @@ const inGroup = (g: Group, lang: Locale) => PAGES.filter((p) => p.group === g).m
 export function navCategories(lang: Locale): NavCategory[] {
   return (['organisation', 'specialites', 'gestion', 'territoires'] as Group[]).map((g) => ({ label: GROUP_LABEL[lang][g], links: inGroup(g, lang) })).filter((c) => c.links.length);
 }
-export const navDirect = (lang: Locale): NavLink[] => [link('method', lang)];
+// Methode : liee en bas de page, hors du menu du haut pour qu'il tienne sur une ligne.
+export const navDirect = (_lang: Locale): NavLink[] => [];
 export const footerColumns = (lang: Locale): NavCategory[] => [...navCategories(lang), { label: lang === 'fr' ? 'Le site' : 'Site', links: ['home', 'method', 'about', 'contact', 'editorial', 'widget', 'terms', 'privacy', 'cookies'].map((i) => link(i, lang)) }];
 export const popularLinks = (_lang: Locale): NavLink[] => [];
