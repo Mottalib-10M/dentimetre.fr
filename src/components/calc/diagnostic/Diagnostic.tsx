@@ -342,7 +342,7 @@ export default function Diagnostic({ lang = 'fr', links, privacyHref, contactEma
             ) : (
               <div className="dg-teaser">
                 <ul className="dg-recos dg-flou" aria-hidden="true">
-                  {[1, 2, 3].map((i) => <li key={i} className={`dg-reco dg-p${i}`}><div className="dg-reco-haut"><b>{i}. {t.prioFactice}</b><span className="dg-gain">≈ +00 000 € {t.parAn}</span></div><p>{t.prioFacticeTxt}</p></li>)}
+                  {[1, 2, 3].map((i) => <li key={i} className={`dg-reco dg-p${i}`}><div className="dg-reco-haut"><b>{i}. {t.prioFactice}</b></div><p>{t.prioFacticeTxt}</p></li>)}
                 </ul>
                 <div className="dg-voile"><div>
                   {gainVu > 0
