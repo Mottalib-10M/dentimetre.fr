@@ -63,7 +63,7 @@ export function depGen(code: string, l: L): DepGen {
       base,
 ], 150, 160, `description ${code}`);
     const h1 = `Honoraires des chirurgiens-dentistes ${dansDep(code)}`;
-    const intro = `${num(o.eff!, l)} omnipraticiens libéraux${odf?.eff ? `, ${num(odf.eff, l)} orthodontistes` : ''} : leurs honoraires moyens ${Y}, et le vôtre en face.`;
+    const intro = `${num(o.eff!, l)} omnipraticiens libéraux${odf?.eff ? `, ${num(odf.eff, l)} orthodontistes` : ''} : les honoraires moyens ${Y} des dentistes ${deDep(code)}, et le vôtre en face.`;
     const s1 = `Les chirurgiens-dentistes omnipraticiens ${deDep(code)} ont perçu en ${Y} ${eur(o.tot!, l)} d'honoraires en moyenne par praticien actif à part entière, ${ecartMot(o.tot!, fo.tot!, l)} (${eur(fo.tot!, l)}), ce qui place le département au ${r.rank === 1 ? '1er' : `${r.rank}e`} rang sur ${r.total}.`;
     const s2 = `Sur ce montant, ${eur(o.dep!, l)} sont des dépassements, c'est-à-dire la part facturée au-delà des tarifs de convention, surtout en prothèse : ${pct(depShare(o)!, l)} des honoraires, contre ${pct(depShare(fo)!, l)} en France.`;
     const s3 = `Le département compte ${num(o.dens!, l)} omnipraticiens pour 100 000 habitants (France : ${num(fo.dens!, l)})${o.p60 != null ? ` et ${pct(o.p60, l)} d'entre eux ont 60 ans ou plus` : ''}.`;
@@ -96,7 +96,7 @@ export function depGen(code: string, l: L): DepGen {
     base,
 ], 150, 160, `description ${code}`);
   const h1 = `Dentists’ fees in ${n}`;
-  const intro = `${num(o.eff!, l)} general dentists in private practice${odf?.eff ? `, ${num(odf.eff, l)} orthodontists` : ''}: their ${Y} average fees, and yours alongside.`;
+  const intro = `${num(o.eff!, l)} general dentists in private practice${odf?.eff ? `, ${num(odf.eff, l)} orthodontists` : ''}: the ${Y} average dentist fees in ${n}, and yours alongside.`;
   const s1 = `General dentists in ${n} (${regName}) billed ${eur(o.tot!, l)} in fees on average in ${Y} per full-time active practitioner, ${ecartMot(o.tot!, fo.tot!, l)} (${eur(fo.tot!, l)}), which ranks the département ${r.rank} out of ${r.total}.`;
   const s2 = `Of that amount, ${eur(o.dep!, l)} is extra fees (dépassements), the part charged above the national health insurance tariffs, mostly on crowns and other prosthetics: ${pct(depShare(o)!, l)} of fees, against ${pct(depShare(fo)!, l)} across France.`;
   const s3 = `There are ${num(o.dens!, l)} general dentists per 100,000 residents (France: ${num(fo.dens!, l)})${o.p60 != null ? `, and ${pct(o.p60, l)} of them are aged 60 or over` : ''}.`;

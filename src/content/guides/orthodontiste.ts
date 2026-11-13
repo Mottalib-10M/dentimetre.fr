@@ -138,7 +138,7 @@ ${tableComptes(h)}
     title: `Orthodontist fees in France ${YEAR}: averages and practices`,
     description: `Orthodontists in French private practice billed ${e(d.tot!, 'en')} on average in ${Y}, ${p(part, 'en', 0)} of it extra-billing: ten-year trend, départements, UNASA practice accounts.`,
     h1: 'Orthodontist fees in French private practice',
-    intro: `Assurance Maladie ${Y} figures for dentofacial orthopaedics (ODF), with what they leave out.`,
+    intro: `Assurance Maladie ${Y} figures for orthodontist fees in dentofacial orthopaedics (ODF), with what they leave out.`,
     resume: `Orthodontists in private practice in France billed ${e(d.tot!, 'en')} in fees on average in ${Y}, about ${formatNumber(ratio, 1, 'en')} times what a general dentist bills. In France orthodontics is a dental specialty, ODF (orthopédie dento-faciale), held by dental surgeons who completed a qualifying residency. Extra-billing above the social security rate makes up ${p(part, 'en')} of the total, ${e(d.dep!, 'en')} against ${e(d.hsd!, 'en')} at the regulated rate. There are ${n(d.eff!, 'en')} private orthodontists, ${n(d.dens!, 'en')} per 100,000 residents, and the headcount is down ${p(-gEff, 'en')} over five years. Average fees rose ${p(g10, 'en')} since 2015. No figure is published for ${n(secret, 'en')} départements with fewer than five orthodontists. Practice accounts are thin: UNASA covers only ${n(ref.echantillon, 'en')} orthodontic practices for ${UNASA_YEAR}, so treat that benchmark as indicative. Non-reimbursed adult treatment is not in any of these averages.`,
     faqs: [
       { q: 'How much does an orthodontist in France bill per year?', a: `${e(d.tot!, 'en')} in ${Y}, per full-time active orthodontist, according to Assurance Maladie, of which ${e(d.dep!, 'en')} is extra-billing. That is gross billing before staff, rent, equipment and social contributions. In ${UNASA_YEAR} practice accounts reported to UNASA, average profit was ${p(1 - ref.taux, 'en')} of receipts, but the sample holds only ${n(ref.echantillon, 'en')} practices.` },
@@ -162,7 +162,7 @@ ${tableComptes(h)}
 <li>density: ${h.num(d.dens!, 1)} private orthodontists per 100,000 people.</li>
 </ul>
 <p>The age gap with general practice is stark: ${h.pct(o.m35!)} of general dentists are under 35, against ${h.pct(d.m35!)} of orthodontists. Assurance Maladie publishes these shares, not an average age at which orthodontists open their practice.</p>
-<h2>Steady growth since 2015</h2>
+<h2>Orthodontist fees: steady growth since 2015</h2>
 <p>The average went from ${h.eur(d.hist['2015'])} in 2015 to ${h.eur(d.tot!)} in ${Y}, up ${h.pct(g10)} in current euros. The curve is smoother than for general dentists. It fell once, in 2020 (${h.eur(d.hist['2020'])}), and recovered in 2021 (${h.eur(d.hist['2021'])}) without the sharp jump seen elsewhere. Since 2019 the rise is ${h.pct(g19)}, and ${h.pct(g1)} in the latest year. So the average climbs while the private headcount edges down.</p>
 <h2>Orthodontists and general dentists side by side</h2>
 ${tableCote(h)}

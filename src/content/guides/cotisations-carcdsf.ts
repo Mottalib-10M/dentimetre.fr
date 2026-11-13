@@ -114,7 +114,7 @@ ${h.table(t.head, t.rows, 'Cotisations CARCDSF 2026 d’un chirurgien-dentiste c
     body: (h) => {
       const t = tableRevenus('en');
       return `
-<h2>Four lines on the bill</h2>
+<h2>The four CARCDSF contributions on the bill</h2>
 <p>CARCDSF (caisse autonome de retraite des chirurgiens-dentistes et des sages-femmes) sets four contributions for 2026 in its scale (${h.src('carcdsfBareme')}). The Pass, France’s annual social security ceiling, is ${h.eur(pass)} and serves as the unit for almost every threshold.</p>
 <ul>
 <li><strong>Basic pension</strong>: ${h.pct(C.rbl_tranche1, 2)} of income up to one Pass, plus ${h.pct(C.rbl_tranche2, 2)} of income up to five Pass. The base never drops below ${h.eur(C.rbl_assiette_minimale)}.</li>

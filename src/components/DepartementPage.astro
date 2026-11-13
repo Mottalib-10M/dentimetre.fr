@@ -14,7 +14,7 @@ import { t } from '../i18n/ui';
 import { DEPS, REGS, FR, DATA_YEAR, DEP_CODES, type Stat } from '../lib/engine/data';
 import { depRank, depShare } from '../lib/engine/benchmark';
 import { depGen } from '../lib/dep-gen';
-import { regLabel } from '../lib/dep-fr';
+import { regLabel, deDep } from '../lib/dep-fr';
 import { depPageByCode, type DepPage } from '../lib/departements';
 import { formatMoney, formatNumber, formatPercent, displayDate, fixOrdinals } from '../lib/format';
 import { AMELI } from '../lib/engine/data';
@@ -70,7 +70,7 @@ const methodHref = route('method', lang);
     <div data-outil class="mb-4"><Benchmark client:load lang={lang} spec="omni" dep={dep.code} methodHref={methodHref} /></div>
     <p class="mb-8 text-sm text-navy-600" data-chrome>{ui.reviewedBy} <a href={route('about', lang)} class="underline hover:text-navy-900">{AUTHOR_NAME}</a> · <a href={route('editorial', lang)} class="underline hover:text-navy-900">{ui.editorialPolicy}</a> · <a href={methodHref} class="underline hover:text-navy-900">{label('method', lang)}</a></p>
     <div class="prose prose-slate max-w-none">
-      <h2>{fr ? `Les chiffres clés ${DATA_YEAR}` : `Key figures, ${DATA_YEAR}`}</h2>
+      <h2>{fr ? `Les chiffres clés ${DATA_YEAR} des dentistes ${deDep(dep.code)}` : `Key figures for dentists in ${dep.name}, ${DATA_YEAR}`}</h2>
       <figure class="not-prose my-6"><figcaption class="mb-2 text-left text-sm text-navy-600">{fr ? `${dep.name} face à sa région et à la France. Honoraires : moyenne par praticien actif à part entière.` : `${dep.name} against its region and France. Fees: average per full-time active practitioner.`}</figcaption><div class="overflow-x-auto"><table class="journal w-full text-sm">
         <thead><tr><th scope="col" class="px-3 py-2 text-left"></th><th scope="col" class="px-3 py-2 text-right">{dep.name}</th><th scope="col" class="px-3 py-2 text-right">{regLabel(reg?.name ?? '')}</th><th scope="col" class="px-3 py-2 text-right">France</th></tr></thead>
         <tbody>
